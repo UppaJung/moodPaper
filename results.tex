@@ -1,0 +1,74 @@
+\input{tables/tab_aware}
+\section{Results}
+After piloting on July 1, we began surveying respondents at 12:00AM EDT the morning of Wednesday July 2, 2014.  We removed from our data 31 responses in which respondents spent under 150 seconds (30 seconds per scenario) completing the survey.
+
+\subsection{Awareness}
+We had intended to filter out those respondents who reported being aware of the Facebook experiment before our survey when making comparisons between different treatments; we would be unable to separate their response to their opinion about the hypothetical experiment described in the survey from their response to the actual experiment, which may have been influenced by the opinions of friends or the media.
+
+\input{tables/tab_no}
+
+\AllKnewAboutMoodStudyyes{A} of \AllKnewAboutMoodStudyAll{A} respondents (\AllKnewAboutMoodStudyyesPercent{A}) answered `yes' when asked if they had been aware of Facebook's `mood' study.
+%As expected, these respondents expressed significantly greater disapproval and concern about this experiment, as can be seen in the top rows of Tables~\ref{tab:awarevsunaware:proceed} and~\ref{tab:awarevsunaware:surrogate}. The differences in both the disapproval question and the concern question were highly unlikely to be due to chance.  For both, we used a two-tailed $\chi^2$ test on the proportion of respondents who answered `no' to determine that such a difference between those aware and those unaware of the Facebook experiment would happen by chance with probability $p < 0.0001$.
+As expected, these respondents expressed significantly greater disapproval and concern about this experiment, as can be seen in the top rows of Tables~\ref{tab:awarevsunaware:proceed} and~\ref{tab:awarevsunaware:surrogate}. The result of differences in both the question about whether the experiment should proceed ($\chi^2(1)=\ChiSqStatAY$), and whether respondents would want those they cared about to participate in the experiment ($\chi^2(1)=\ChiSqStatBY$), were highly-statistically significant. We present the results of these comparisons in Table \ref{tab:chi2:awarevsunaware}.
+
+A tempting explanation for these highly-significant differences is that respondents' opinions were strongly swayed by opinions of the media and other sources of information about Facebook's experiment.  It's also possible that disapproval for aspects of the experiment not described in our hypothetical experiment description carried over to their evaluation of the ethics of the hypothetical scenario, and that they would have disapproved without the influence of others' opinions had we only presented those facts.  For example, the difference may be due to the fact that those who were aware of the study had learned explicitly that the researchers did not receive consent from participants, whereas those shown the hypothetical scenario were not told explicitly whether the researchers had or had not obtained consent.
+
+Yet another alternate hypothesis is that those who are most likely to disapprove of the ethics of the Facebook experiment, or of research studies in general, were more likely to seek out hear about it from friends or see coverage of it in the media. To examine the hypothesis that those aware of the Facebook experiment were more disapproving of experimental scenarios in general, we examine in Table~\ref{tab:awarevsunaware} respondents' `no' answers to the same to questions for the four unrelated experiments.  While there are differences in the more controversial experiments, they are much smaller than for our abstracted versions of Facebook's experiment.
+
+%For respondents who reported being \emph{aware} of Facebook's experiment, the scenario based on it received far more participant concern (an answer of ``no'' to the question about whether the respondent would want someone they cared about to participate in the experiment) than any of the four other experimental scenarios.
+
+\input{tables/tab_stats}
+
+Given the differences between those aware and unaware of the Facebook experiment at the time of the survey, we exclude from the remainder of our analysis those \AllKnewAboutMoodStudyyes{A} of \AllKnewAboutMoodStudyAll{A} respondents (\AllKnewAboutMoodStudyyesPercent{A}) who reported being already aware it.
+
+\subsection{Comparison to IRB-approved studies}
+Some critics of Facebook's emotional contagion experiment have argued that it should have received the same level of scrutiny that would be required of an experiment run at a university~\cite{WSJ:Criticism,CBC:Criticism,Ithaca:Criticism,WashingtonPost:Criticism}.
+Without stepping into the debate of whether or when an institutional review board is \emph{necessary}, we believe our results may provide insight to the question of whether such review is guaranteed to be \emph{sufficient}.
+
+Among respondents who reported being aware of Facebook's experiment and whose opinions may have been influenced by media coverage, the scenario based on it received the highest proportion of disapproval and concern for participants.  This was not the case for those who reported being previously unaware of the experiment.
+
+Rather, for those respondents who did report being unaware of Facebook's experiment, the Facebook control scenario came in third in our measure of concern for participants, behind the social phishing scenario (\TreatmentNum{SP}) and the spam infrastructure scenario (\TreatmentNum{BS}).  See the rightmost column of Table~\ref{tab:awarevsunaware:surrogate}.
+The two experimental scenarios that caused our respondents the greatest concern for participants were performed by universities under their ethical oversight.
+
+For the disapproval question (whether the experiment should be allowed to proceed), shown in the rightmost column of Table~\ref{tab:awarevsunaware:proceed}, the Facebook scenario received no more disapproval than the two controversial university scenarios.
+
+The two less controversial university experiments (\TreatmentNum{OSCS} and \TreatmentNum{WD}), which we had potentially made more controversial by eliding the presence of consent, received less concern and disapproval from our respondents than the other three.
+
+\subsection{Treatment effects}
+For each treatment scenario, we tally all respondents' possible answers to our question about whether each experiment should be allowed to proceed and present them in Table~\ref{tab:unaware:proceed}.  We present in in Table~\ref{tab:unaware:surrogate} the tallies for whether respondents would want someone they cared about to participate.
+
+%We present statistical tests (for hypotheses we had constructed prior to running the experiment) in Table~\ref{tab:stats}, but do so with some trepidation.  The $p$ values represent the probability that a difference observed between two sets of respondents was the result of chance (via the random assignment of respondents to treatments), under the assumption (or \emph{null hypothesis}) that there is no actual difference in the larger population.  It is traditional in the scientific literature to choose a threshold ($\alpha$) at which results are deemed statistically significant (when $p<\alpha$).  Before publishing a conclusion that an observed difference is a genuine effect that future scientists should treat as fact, a very small $\alpha$ is appropriate.  However, when choosing between a few possible design options, one may be ill-advised to ignore effects with $p$ values that indicate an effect might have been the result of chance, but most likely was not.
+
+The treatment that led the lowest disapproval and concern compared to the control treatment was \TreatmentNum{IOP}, in which we had modified the experimental scenario so that Facebook's researchers would add (rather than hide) posts---and only add positive posts.  The nearly-as-low disapproval and concern for \TreatmentNum{IP}, in which both negative posts were added, provides additional evidence that adding posts from below the relevance threshold might have been less objectionable than removing posts that were deemed relevant.  The difference between \TreatmentNum{WRNP} and \TreatmentNum{WRPP} provides some weak additional evidence supporting the notion that respondents became more uncomfortable when manipulations made participants' news feeds more negative.
+
+In contrast, modifying the goals of Facebook's experiment had little effect on our respondents' disapproval and concern for participants.  Neither removing the goal of scientific publication (\TreatmentNum{WP}) nor removing the goal of product improvements benefiting users (\TreatmentNum{WIP}) had much effect.  Attempting to disabuse the notion that the research would be used for advertising may backfire, as respondents shown a statement that the research would not be used for advertising actually had higher levels of concern and disapproval than the control (though the difference did not cross the threshold of significance).
+
+A small proportion of those respondents shown the scenario in which the experiment was run by `a social network' (\TreatmentNum{UC}) or `Twitter' (\TreatmentNum{T}) disapproved or were concerned for participants than of those respondents shown the control (in which the experiment was run by Facebook).  The effects would not constitute significance after our conservative correction for multiple testing, but they may well have been had we tested these two groups combined against the control.  If this result is indeed the product of a true difference, proponents' of Facebook's experiment might see it as evidence that Facebook's research receives unequal criticism.  On the other hand, critics might claim the effect to be the result from concerns about the company's history, market position, or other factors they consider to be legitimate sources of respondent concern.
+
+%\input{tables/tab_other_experiments}
+
+\subsection{Prediction value}
+One way to evaluate the predictive value of ethical-response surveys is to compare results derived from survey respondents with the answers of participants who have experienced experiments firsthand.
+
+As part of the design of the warning experiment that inspired Scenario \TreatmentNumWD{}~\cite{BravoLillo2013:Attention}, the researchers (which included authors of this paper) directed some participants to a post-deception survey~\cite{EthicalResearchProject} immediately after debriefing.  A total of 780 participants responded.  All but 11 (769 total) opted to share their feedback with ethics researchers.  All were offered the opportunity to withhold their data if they found the experiment sufficiently unethical.  750 consented to the use of their data by the experiment's researchers, 15 found the experiment objectionable but allowed researchers to still use their data, and four chose to withhold their data from final results (but allowed researchers to use it to verify that their published results would not have been different had the data been included).  None chose to withhold their data entirely.  In total, 19/769 (2\%) registered objection to the experiment in response to the question about withholding their data.
+
+A total of 764 participants in the warning experiment had responded to a question asking whether the experiment should proceed, which was similar to the question we presented in this paper but had different response options.  In all, 11 (1\%) of participants answered that the experiment should `definitely not' proceed, 15 (2\%) `probably not', and 25 (3\%) `prefer not to answer', 177 `probably proceed' (23\%) and 536 (70\%) `definitely proceed'.
+
+Given the relatively large number of participants who preferred not to answer or who didn't want to allow ethics researchers to use their responses, the range of participants who participated in the experiment and who believed the experiment should not have been allowed to proceed ranged from between 3\% and 8\%.  Given that, the 7\% of respondents in our survey who disapproved of Scenario \TreatmentNumWD{} seems to be a reasonable estimate.
+
+On the other hand, of the \AllKnewAboutMoodStudyAll{A} respondents in our current survey, including those aware of Facebook's experiment,  135 (4\%) reported that they had participated in the warning deception experiment (\TreatmentNum{WD}).  Only one of the 135 ($<1\%$) reported that it should not proceed, as compared to 7\% (243/3,404) of all other participants (summed from Table~\ref{tab:awarevsunaware}).  Of the other 134 respondents, 7 (5\%) were `unsure', 30 (22\%) answered `Yes, with caution', and 97 (72\%) answered `Yes'.
+Similarly, only 10 of the 135 (7\%) would prefer that someone they cared about not participate in the study, while 52 (39\%) would be indifferent, and 73 (54\%) would want the person they care about to participate.  Thus, concern is roughly half that of those who had not participated.  These figures suggest that, at least for some scenarios, our methodology may have been overly conservative.  One possible explanation for the difference is that those who had participated in the study were aware of the use of consent; another is that being part of the experiment made participants more comfortable that it was performed in a beneficent manner that was respectful of participants.
+
+%\cbladd{The previous paragraph suggests an \textit{ex post} ethical criterion to perform a study: if more information about a study leads to more respondents disapproving the study, this strongly suggests that the study should be revised.}
+
+\input{tables/tab_chisquare_tests}
+
+%\subsection{Time to complete the survey}
+%
+%We analyzed the time it took to respondents to complete the survey. After removing 31 participants who took less than 150 seconds (that is, an average of 30 seconds or less to complete each scenario), we compared the time distributions of our 10 treatments. An omnibus Kruskal-Wallis test was not significant ($K(9)=\TimeKruskalStat$, $p=\TimeKruskalPValue$). Thus, we have no evidence that respondents in one scenario may have taken more time to complete the survey than any other treatments.
+
+%Add these
+%13	FriendConcerned	0-yes
+%32	FriendConcerned	1-somewhat
+%337	FriendConcerned	2-no
+%12	FriendConcerned	na-prefernottoanswer

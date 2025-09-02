@@ -1,0 +1,160 @@
+<!--begin.rcode setup, cache=FALSE, echo=FALSE, include=FALSE
+	opts_chunk$set(echo=FALSE, fig.width=7, fig.height=4)
+	knit_patterns$set(header.begin = NULL)
+	library(pwr)
+end.rcode-->
+<html>
+<head>
+	<title>Ethics Mood experiment</title>
+	<link rel='stylesheet' type='text/css' href='styles.css'/>
+	<script type='text/javascript' src='js/jquery-2.0.3.min.js'></script>
+	<script type='text/javascript' src='js/clio.js'></script>
+</head>
+
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+<body>
+<div class='cap' style='max-width:25%;'>
+	<div class='header'>Summary</div>
+	<div class='body'>
+		<p>We have <!--rinline nrow(allfolks) --> participants, out of which <!--rinline nrow(folksWhoDidntKnow) -->
+		(<!--rinline cf.asPercentage(nrow(folksWhoDidntKnow)/nrow(allfolks)) -->) were unaware of the Facebook Mood experiment.</p>
+		
+		<p>Main questions:</p>
+		<ul>
+		<li><em>Proceed question</em>: "Do you believe the researchers should be allowed to proceed with this experiment?"</li>
+		<li><em>Surrogate question</em>: "If someone you cared about were a candidate participant for this experiment, would you want that person
+		to be included as a participant?"</li>
+		</ul>
+		
+		<p>Conditions:</p>
+		<table class='simple' cellspacing='0'>
+<!--begin.rcode, results='asis'
+		cat(cf.asHTMLTable(cbind(
+			as.matrix(table(folksWhoDidntKnow$Treatment)),
+			cf.asPercentage(as.matrix(table(folksWhoDidntKnow$Treatment)/nrow(folksWhoDidntKnow)))
+		)))
+end.rcode-->
+		</table>
+	</div>
+</div>
+
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+<div class='cap' style='max-width:30%;'>
+	<div class='header'>Graph: Proceed question by awareness</div>
+	<div class='body'>
+		<p>Responses to the Proceed question, split by awareness of the Facebook Study. This graph was built over the whole dataset (N=<!--rinline nrow(allfolks) -->).</p>
+<!--begin.rcode, fig.width=7, fig.height=1.6
+	proceed = with(allfolks, rbind(table(Proceed_Facebook[ !KnewAboutMoodStudy]), table(Proceed_Facebook[ KnewAboutMoodStudy ])))
+	colnames(proceed) = c('No', 'Unsure', 'With caution', 'Yes')
+	rownames(proceed) = c('Unaware', 'Aware')
+	grph.stackedFullProportionBarplot(proceed, outmargins=c(1.5, 5, 1.2, 9), inmargins=c(0.1, 0), legendoffset=0.4, fontzoom=1.5,
+						    thiscolor=c('firebrick1','goldenrod1','darkolivegreen2','forestgreen'), useratiowithin=TRUE)
+	rm(proceed)
+end.rcode-->
+	</div>
+</div>
+
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+<div class='cap' style='max-width:30%;'>
+	<div class='header'>Graph: Surrogate question by awareness</div>
+	<div class='body'>
+		<p>Responses to the Surrogate question, split by awareness of the Facebook Study. This graph was built over the whole dataset (N=<!--rinline nrow(allfolks) -->).</p>
+<!--begin.rcode, fig.width=7, fig.height=1.6
+	surrogate = with(allfolks, rbind(table(Surrogate_Facebook[ !KnewAboutMoodStudy]), table(Surrogate_Facebook[ KnewAboutMoodStudy ])))
+	colnames(surrogate) = c('No', 'Indifferent', 'Yes')
+	rownames(surrogate) = c('Unaware', 'Aware')
+	grph.stackedFullProportionBarplot(surrogate, outmargins=c(1.5, 5, 1.2, 9), inmargins=c(0.1, 0), legendoffset=0.35, fontzoom=1.5,
+						    thiscolor=c('firebrick1','goldenrod1','forestgreen'), useratiowithin=TRUE)
+end.rcode-->
+	</div>
+</div>
+
+
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+<div class='cap' style="max-width:30%;">
+	<div class='header'>Graph: Proceed question by condition</div>
+	<div class='body'>
+		<p>Responses to the Proceed question, split by condition (i.e., variation of Facebook study). This graph was built over those participants who were
+		not aware of the Facebook study (N=<!--rinline nrow(folksWhoDidntKnow) -->).</p>
+<!--begin.rcode, fig.width=7, fig.height=6
+	proceed = NULL
+	for (i in 1:nrow(treatments)) {
+		proceed = rbind(proceed, table(folksWhoDidntKnow$Proceed_Facebook[ folksWhoDidntKnow$Treatment==treatments[i] ]))
+	}
+	colnames(proceed) = c('No','Unsure','Yes, with\ncaution', 'Yes')
+	rownames(proceed) = treatments[,2]
+	grph.stackedFullProportionBarplot(proceed, outmargins=c(1.5, 9, 1.2, 5.7), inmargins=c(0.1, 0), legendoffset=0.27, fontzoom=1.25,
+						    thiscolor=c('firebrick1','goldenrod1','darkolivegreen2','forestgreen'), useratiowithin=TRUE, orderfirst=TRUE)
+	rm(i,proceed)
+end.rcode-->
+	</div>
+</div>
+
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+<div class='cap' style="max-width:30%;">
+	<div class='header'>Graph: Surrogate question by condition</div>
+	<div class='body'>
+		<p>Responses to the Surrogate question, split by condition (i.e., variation of Facebook study). This graph was built over those participants who were
+		not aware of the Facebook study (N=<!--rinline nrow(folksWhoDidntKnow) -->).</p>
+<!--begin.rcode, fig.width=7, fig.height=6
+	surrogate = NULL
+	for (i in 1:nrow(treatments)) {
+		surrogate = rbind(surrogate, table(folksWhoDidntKnow$Surrogate_Facebook[ folksWhoDidntKnow$Treatment==treatments[i] ]))
+	}
+	colnames(surrogate) = c('No','Indifferent','Yes')
+	rownames(surrogate) = treatments[,2]
+	grph.stackedFullProportionBarplot(surrogate, outmargins=c(1.5, 9, 1.2, 5.9), inmargins=c(0.1, 0), legendoffset=0.29, fontzoom=1.25,
+						    thiscolor=c('firebrick1','goldenrod1','forestgreen'),  useratiowithin=TRUE, orderfirst=TRUE)
+	rm(i,surrogate)
+end.rcode-->
+	</div>
+</div>
+
+<hr style='clear:both;'/>
+
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+<!--begin.rcode, results='asis'
+	for (i in suffixes) {
+		cat("<div class='cap' style='max-width:30%;'>\n\t<div class='header closed'>", i," study, answers to Proceed question</div>\n\t<div class='body'>\n", sep='')
+		displayFreeResponsesAsHTMLList(getFreeResponses(folksWhoDidntKnow, paste('XplainProceed_', i, sep='')), type='ul')
+		cat("\t</div>\n</div>\n\n")
+	}
+end.rcode-->
+
+<hr style='clear:both;'/>
+
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+<!--begin.rcode, results='asis'
+	for (i in suffixes) {
+		cat("<div class='cap' style='max-width:30%;'>\n\t<div class='header closed'>", i," study, answers to Surrogate question</div>\n\t<div class='body'>\n", sep='')
+		displayFreeResponsesAsHTMLList(getFreeResponses(folksWhoDidntKnow, paste('XplainSurrogate_', i, sep='')), type='ul')
+		cat("\t</div>\n</div>\n")
+	}
+end.rcode-->
+
+<hr style='clear:both;'/>
+
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+<!--begin.rcode, results='asis'
+	for (i in suffixes[c(1,3:5)]) {
+		cat("<div class='cap' style='max-width:20%;'>\n\t<div class='header closed'>", i," study</div>\n\t<div class='body'>\n", sep='')
+		cat("<p>", sum(folksWhoDidntKnow[,c(paste('AwareThisStudy_', i, sep=''))]), " participants (", sep='')
+		cat(cf.asPercentage(sum(folksWhoDidntKnow[,c(paste('AwareThisStudy_', i, sep=''))])/nrow(folksWhoDidntKnow)), ") ", sep='')
+		cat("were aware of this study. ")
+		cat(sum(folksWhoDidntKnow[,c(paste('PrevParticipated_', i, sep=''))]), " participants (", sep='')
+		cat(cf.asPercentage(sum(folksWhoDidntKnow[,c(paste('PrevParticipated_', i, sep=''))])/nrow(folksWhoDidntKnow)), ") ", sep='')
+		cat("reported that they thought they participated.</p> <p>Answers to proceed question:</p><table class='simple' cellspacing='0'>")
+		cat(cf.asHTMLTable(cbind(
+			as.matrix(table(folksWhoDidntKnow[,c(paste('Proceed_', i, sep=''))])),
+			cf.asPercentage(as.matrix(table(folksWhoDidntKnow[,c(paste('Proceed_', i, sep=''))])/nrow(folksWhoDidntKnow)))
+		)))
+		cat("</table><p>Answers to surrogate question:</p><table class='simple' cellspacing='0'>")
+		cat(cf.asHTMLTable(cbind(
+			as.matrix(table(folksWhoDidntKnow[,c(paste('Surrogate_', i, sep=''))])),
+			cf.asPercentage(as.matrix(table(folksWhoDidntKnow[,c(paste('Surrogate_', i, sep=''))])/nrow(folksWhoDidntKnow)))
+		)))
+		cat("</table></div>\n</div>\n")
+	}
+end.rcode-->
+
+</body></html>

@@ -1,0 +1,100 @@
+\newcommand{\proceedline}[1]{\CaptionSize{\TreatmentNum{#1}}
+& \CaptionSize{\Heading{#1}}
+& \UnawareProceedFacebookno{#1} & (\bf \UnawareProceedFacebooknoPercent{#1})
+& \UnawareProceedFacebookunsure{#1} & (\UnawareProceedFacebookunsurePercent{#1})
+& \UnawareProceedFacebookcaution{#1} & (\UnawareProceedFacebookcautionPercent{#1})
+& \UnawareProceedFacebookyes{#1} &(\UnawareProceedFacebookyesPercent{#1})
+& \UnawareProceedFacebookAll{#1} }
+\begin{subtable}{.95\textwidth}
+\setlength{\tabcolsep}{4pt}
+\noindent \small
+\begin{tabular}{r|l*{4}{|rr}|r}
+  \multicolumn{2}{c}{}
+& \multicolumn{8}{|c}{Response}
+& \multicolumn{1}{|c}{}
+\\
+  \multicolumn{2}{c}{}
+& \multicolumn{2}{|c}{}
+& \multicolumn{2}{|c}{}
+& \multicolumn{2}{|c}{Yes,}
+& \multicolumn{2}{|c}{}
+& \multicolumn{1}{|c}{}
+\\
+  \multicolumn{2}{c}{Experiment described in abstract}
+& \multicolumn{2}{|c}{}
+& \multicolumn{2}{|c}{I'm not}
+& \multicolumn{2}{|c}{but with}
+& \multicolumn{2}{|c}{}
+& \multicolumn{1}{|c}{}
+\\
+  \multicolumn{2}{c}{\textit{\tiny{(order of presentation randomized for each respondent)}}}
+& \multicolumn{2}{|c}{\bf No}
+& \multicolumn{2}{|c}{sure}
+& \multicolumn{2}{|c}{caution}
+& \multicolumn{2}{|c}{Yes}
+& \multicolumn{1}{|c}{\textit{Total}}
+\\
+\hline \hline
+  \multicolumn{11}{l}{}
+\\
+  \multicolumn{11}{l}{Facebook's emotional contagion experiment \textit{(each respondent saw one variant, selected at random)}}
+\\
+\hline
+\proceedline{C} \\
+\hline
+\proceedline{WRNP} \\
+\proceedline{WRPP} \\
+\hline
+\proceedline{WP} \\
+\proceedline{WIP} \\
+\hline
+\proceedline{NA} \\
+\hline
+\proceedline{IP} \\
+\proceedline{IOP} \\
+\hline
+\proceedline{UC} \\
+\proceedline{T} \\
+\hline
+\proceedline{A} \\ \hline
+  \multicolumn{11}{l}{}
+\\
+  \multicolumn{11}{l}{Other experiments \textit{(all respondents saw all experiments)}}
+\\
+\hline
+\CaptionSize{\TreatmentNum{SP}} &
+\CaptionSize{\Describe{SP}}
+& \UnawareProceedSocialPhishingno{A} &(\bf \UnawareProceedSocialPhishingnoPercent{A})
+& \UnawareProceedSocialPhishingunsure{A} &(\UnawareProceedSocialPhishingunsurePercent{A})
+& \UnawareProceedSocialPhishingcaution{A} &(\UnawareProceedSocialPhishingcautionPercent{A})
+& \UnawareProceedSocialPhishingyes{A} &(\UnawareProceedSocialPhishingyesPercent{A})
+& \UnawareProceedSocialPhishingAll{A}
+\\
+\CaptionSize{\TreatmentNum{BS}} &
+\CaptionSize{\Describe{BS}}
+& \UnawareProceedBotnetSpamno{A} &(\bf \UnawareProceedBotnetSpamnoPercent{A})
+& \UnawareProceedBotnetSpamunsure{A} &(\UnawareProceedBotnetSpamunsurePercent{A})
+& \UnawareProceedBotnetSpamcaution{A} &(\UnawareProceedBotnetSpamcautionPercent{A})
+& \UnawareProceedBotnetSpamyes{A} &(\UnawareProceedBotnetSpamyesPercent{A})
+& \UnawareProceedBotnetSpamAll{A}
+\\
+\CaptionSize{\TreatmentNum{OSCS}} &
+\CaptionSize{\Describe{OSCS}}
+& \UnawareProceedOSCredentialSpoofingno{A} &(\bf \UnawareProceedOSCredentialSpoofingnoPercent{A})
+& \UnawareProceedOSCredentialSpoofingunsure{A} &(\UnawareProceedOSCredentialSpoofingunsurePercent{A})
+& \UnawareProceedOSCredentialSpoofingcaution{A} &(\UnawareProceedOSCredentialSpoofingcautionPercent{A})
+& \UnawareProceedOSCredentialSpoofingyes{A} &(\UnawareProceedOSCredentialSpoofingyesPercent{A})
+& \UnawareProceedOSCredentialSpoofingAll{A}
+\\
+\CaptionSize{\TreatmentNum{WD}} &
+\CaptionSize{\Describe{WD}}
+& \UnawareProceedWarningsDeceptionno{A} &(\bf \UnawareProceedWarningsDeceptionnoPercent{A})
+& \UnawareProceedWarningsDeceptionunsure{A} &(\UnawareProceedWarningsDeceptionunsurePercent{A})
+& \UnawareProceedWarningsDeceptioncaution{A} &(\UnawareProceedWarningsDeceptioncautionPercent{A})
+& \UnawareProceedWarningsDeceptionyes{A} &(\UnawareProceedWarningsDeceptionyesPercent{A})
+& \UnawareProceedWarningsDeceptionAll{A}
+\\
+\end{tabular}
+\caption{``Do you believe the researchers should be allowed to proceed with this experiment?''}
+\label{tab:unaware:proceed}
+\end{subtable}

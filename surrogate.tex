@@ -1,0 +1,78 @@
+\documentclass[letterpaper,twocolumn,10pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{etoolbox,ifthen,graphicx,caption,subcaption,url,color,balance}
+\usepackage{abstract}
+\usepackage{multicol}
+% amssymb,color,array,url,multirow,colortbl
+%\raggedbottom
+
+%\usepackage[
+%pdftitle={FIXME},
+%pdfauthor={FIXME},
+%hidelinks,
+%]{hyperref}
+
+\begin{document}
+%\setlength{\pdfpagewidth}{8.5in}
+%\setlength{\pdfpageheight}{11in}
+
+
+\title{\Large
+Using Ethical-Response Surveys to Identify Sources of Disapproval\\
+and Concern with Facebook's Emotional Contagion Experiment\\
+and Other Controversial Studies
+\\
+\vspace{.25in}
+{\large \emph{Working paper} 
+\\ \normalsize (expect minor changes in the future)}
+}
+\author{
+{\rm Stuart Schechter}\\
+\normalsize Microsoft Research
+\and
+{\rm Cristian Bravo-Lillo}\\
+\normalsize Carnegie Mellon University
+%\and
+%{\rm Serge Egelman}\\
+%\normalsize University of California,\\Berkeley
+}
+%\maketitle
+\input{macros}
+\input{treatment_macros}
+\input{results_macros}
+\input{ResultsTally}
+
+\twocolumn[
+  \maketitle
+  \begin{onecolabstract}
+\input{abstract}
+\vspace{.25in}
+  \end{onecolabstract}
+]
+%\input{abstract.tex}
+%
+%
+%\input{abstract}
+\pagebreak
+\input{intro}
+\input{methodology}
+\preview{
+\input{results}
+\input{discussion}
+}
+{
+\section{Results}
+\textbf{We plan to post the update of this paper containing the results and analysis at 12:01AM Pacific on Tuesday July 15.}
+\input{acknowledgements}
+}
+%\bibliographystyle{acm-sigchi}
+%\bibliography{ethics}
+\balance\bibliographystyle{abbrv}
+\bibliography{../litreview/ethics}
+
+\clearpage\appendix
+%\input{survey}
+\input{scenarios}
+%\input{sections/an_appendix_here.tex}
+
+\end{document}

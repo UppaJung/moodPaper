@@ -1,0 +1,109 @@
+
+
+
+
+\newcommand{\DescribeA}[0]{All variants of Facebook study}
+\newcommand{\DescribeC}[0]{Control}
+\newcommand{\DescribeWRNP}[0]{Only remove positive posts}
+\newcommand{\DescribeWRPP}[0]{Only remove negative posts}
+\newcommand{\DescribeWP}[0]{Remove mention of publication}
+\newcommand{\DescribeWIP}[0]{Remove mention of product improvement}
+\newcommand{\DescribeIP}[0]{Insert posts instead of hiding}
+\newcommand{\DescribeIOP}[0]{Insert posts, and only positive ones}
+\newcommand{\DescribeNA}[0]{Promise not to use for advertising}
+\newcommand{\DescribeUC}[0]{Replace `Facebook' with `a social network'}
+\newcommand{\DescribeT}[0]{Replace `Facebook' with `Twitter'}
+
+\newcommand{\DescribeBS}[0]{Spam infrastructure infiltration \& analysis}
+\newcommand{\DescribeSP}[0]{Social phishing}
+\newcommand{\DescribeOSCS}[0]{Password-dialog spoofing}
+\newcommand{\DescribeWD}[0]{Spoofed-warning deception}
+\newcommand{\DescribeF}[0]{Facebook's emotional contagion experiment}
+
+
+
+%   Surrogate_OSCredentialSpoofing
+%   Surrogate_SocialPhishing
+%   Surrogate_WarningsDeception
+
+\newcommand{\Describe}[1]{%
+\ifstrequal{#1}{A}{\DescribeA{}}{}%
+\ifstrequal{#1}{C}{\DescribeC{}}{}%
+\ifstrequal{#1}{WRNP}{\DescribeWRNP{}}{}%
+\ifstrequal{#1}{WRPP}{\DescribeWRPP{}}{}%
+\ifstrequal{#1}{WP}{\DescribeWP{}}{}%
+\ifstrequal{#1}{WIP}{\DescribeWIP{}}{}%
+\ifstrequal{#1}{IP}{\DescribeIP{}}{}%
+\ifstrequal{#1}{IOP}{\DescribeIOP{}}{}%
+\ifstrequal{#1}{NA}{\DescribeNA{}}{}%
+\ifstrequal{#1}{UC}{\DescribeUC{}}{}%
+\ifstrequal{#1}{T}{\DescribeT{}}{}%
+\ifstrequal{#1}{BS}{\DescribeBS{}}{}%
+\ifstrequal{#1}{OSCS}{\DescribeOSCS{}}{}%
+\ifstrequal{#1}{SP}{\DescribeSP{}}{}%
+\ifstrequal{#1}{WD}{\DescribeWD{}}{}%
+\ifstrequal{#1}{F}{\DescribeF{}}{}%
+}
+
+\newcommand{\Heading}[1]{%
+\ifstrequal{#1}{A}{\emph{Total}}{\Describe{#1}}%
+}
+
+\newcommand{\TreatmentNumA}[0]{F}
+\newcommand{\TreatmentNumC}[0]{F0}
+\newcommand{\TreatmentNumWRNP}[0]{F1}
+\newcommand{\TreatmentNumWRPP}[0]{F2}
+\newcommand{\TreatmentNumWP}[0]{F3}
+\newcommand{\TreatmentNumWIP}[0]{F4}
+\newcommand{\TreatmentNumNA}[0]{F5}
+\newcommand{\TreatmentNumIP}[0]{F6}
+\newcommand{\TreatmentNumIOP}[0]{F7}
+\newcommand{\TreatmentNumUC}[0]{F8}
+\newcommand{\TreatmentNumT}[0]{F9}
+
+\newcommand{\TreatmentNumSP}[0]{A}
+\newcommand{\TreatmentNumBS}[0]{B}
+\newcommand{\TreatmentNumOSCS}[0]{C}
+\newcommand{\TreatmentNumWD}[0]{D}
+\newcommand{\TreatmentNumF}[0]{F}
+
+\newcommand{\TreatmentNum}[1]{%
+\ifstrequal{#1}{A}{\TreatmentNumA{}}{}%
+\ifstrequal{#1}{C}{\TreatmentNumC{}}{}%
+\ifstrequal{#1}{WRNP}{\TreatmentNumWRNP{}}{}%
+\ifstrequal{#1}{WRPP}{\TreatmentNumWRPP{}}{}%
+\ifstrequal{#1}{WP}{\TreatmentNumWP{}}{}%
+\ifstrequal{#1}{WIP}{\TreatmentNumWIP{}}{}%
+\ifstrequal{#1}{NA}{\TreatmentNumNA{}}{}%
+\ifstrequal{#1}{IP}{\TreatmentNumIP{}}{}%
+\ifstrequal{#1}{IOP}{\TreatmentNumIOP{}}{}%
+\ifstrequal{#1}{UC}{\TreatmentNumUC{}}{}%
+\ifstrequal{#1}{T}{\TreatmentNumT{}}{}%
+\ifstrequal{#1}{BS}{\TreatmentNumBS{}}{}%
+\ifstrequal{#1}{OSCS}{\TreatmentNumOSCS{}}{}%
+\ifstrequal{#1}{SP}{\TreatmentNumSP{}}{}%
+\ifstrequal{#1}{WD}{\TreatmentNumWD{}}{}%
+\ifstrequal{#1}{F}{\TreatmentNumF{}}{}%
+}
+
+
+\newcommand{\TreatmentSection}[1]{%
+\let\oldthesubsubsection\thesubsubsection%
+\renewcommand{\thesubsubsection}{%\thesection{}.
+\TreatmentNum{#1}}%
+\subsubsection{\Describe{#1}}%
+\label{Treatment:#1}%
+\let\thesubsubsection\oldthesubsubsection%
+}
+
+
+\newcommand{\AppTreatmentSection}[1]{%
+\let\oldthesubsubsection\thesubsubsection%
+\renewcommand{\thesubsubsection}{%\thesection{}.
+\TreatmentNum{#1}}%
+\subsubsection{\Describe{#1}}%
+\let\thesubsubsection\oldthesubsubsection%
+}
+
+
+\newcommand{\CaptionSize}[1]{\footnotesize{#1}}

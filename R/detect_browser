@@ -1,0 +1,23 @@
+#!/usr/bin/perl
+
+use 5.8.8;
+use strict;
+use warnings;
+use Data::Dumper;
+use HTTP::BrowserDetect;
+use TTools::CSV;
+
+die "!> No input file was specified.\n" if (!$ARGV[0]);
+die "!> No id field was specified.\n" if (!$ARGV[1]);
+die "!> No user agent field was specified.\n" if (!$ARGV[2]);
+die "!> Cannot open ".$ARGV[0]."\n" if (!-e $ARGV[0] || !-r $ARGV[0]);
+
+my $csv = TTools::CSV->new($ARGV[0]);
+
+print "\"".$ARGV[1]."\",\"OS\",\"Engine\",\"Browser\"\n";
+for (my $i=0; $i<$csv->numRows(); $i++)
+{
+	my $row = $csv->getRow($i);
+	my $t = HTTP::BrowserDetect->new($row->{$ARGV[2]});
+	print $row->{$ARGV[1]}.",\"".$t->os_string()."\",\"".$t->engine_string()." ".($t->engine_version() || 'NN')."\",\"".$t->browser_string()." ".$t->public_version()."\"\n";
+}

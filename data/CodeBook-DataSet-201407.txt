@@ -1,0 +1,6 @@
+File: cbravo@caprica:/mnt/files/PhD/Ethics/moodPaper/data/RawResults201407TDF.csv
+Comments: Above file corresponds to the original moodpaper dataset, with 3539 participants. It was generated from RawResults201407TDF.txt,
+	by opening it with LibreOffice and saving it as CSV. For some unknown reason, the usual R functions to read CSV files choke on the
+	file above.
+
+

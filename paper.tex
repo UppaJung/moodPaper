@@ -1,0 +1,87 @@
+\documentclass{article}
+\usepackage{etoolbox,ifthen,graphicx,caption,subcaption,url,color,balance,geometry}
+\usepackage{multicol}
+% amssymb,color,array,url,multirow,colortbl
+%\raggedbottom
+
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\bf\ttfamily}}}
+\makeatother
+\urlstyle{leo}
+
+% To make various LaTeX processors do the right thing with page size.
+\def\pprw{8.5in}
+\def\pprh{11in}
+\special{papersize=\pprw,\pprh}
+\setlength{\paperwidth}{\pprw}
+\setlength{\paperheight}{\pprh}
+\setlength{\pdfpagewidth}{\pprw}
+\setlength{\pdfpageheight}{\pprh}
+
+% Make sure hyperref comes last of your loaded packages,
+% to give it a fighting chance of not being over-written,
+% since its job is to redefine many LaTeX commands.
+%\usepackage[pdftex]{hyperref}
+%\hypersetup{
+%pdftitle={SIGCHI Conference Proceedings Format},
+%pdfauthor={LaTeX},
+%pdfkeywords={SIGCHI, proceedings, archival format},
+%bookmarksnumbered,
+%pdfstartview={FitH},
+%colorlinks,
+%citecolor=black,
+%filecolor=black,
+%linkcolor=black,
+%urlcolor=black,
+%breaklinks=true,
+%}
+
+% create a shortcut to typeset table headings
+\newcommand\tabhead[1]{\small\textbf{#1}}
+
+
+
+
+\begin{document}
+%\setlength{\pdfpagewidth}{8.5in}
+%\setlength{\pdfpageheight}{11in}
+\newgeometry{vmargin={15mm}, hmargin={12mm,17mm}}
+
+
+\title{Identifying Experimental Risks Using Surveys}
+
+
+% \numberofauthors{2}
+\author{
+  Stuart Schechter \and 
+ Cristian Bravo-Lillo
+}
+
+\date{2014}
+
+%\maketitle
+
+\input{ResultsTally}
+\input{macros}
+\input{treatment_macros}
+\input{results_macros}
+
+\maketitle
+\input{abstract}
+\input{intro}
+\input{methodology}
+\input{results}
+\input{discussion}
+%\input{acknowledgements}
+%\bibliographystyle{acm-sigchi}
+%\bibliography{ethics}
+\bibliographystyle{acm-sigchi}
+\bibliography{../litreview/ethics}
+
+\clearpage\appendix
+%\input{survey}
+\input{scenarios}
+%\input{sections/an_appendix_here.tex}
+
+\end{document}

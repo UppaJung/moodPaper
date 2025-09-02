@@ -1,0 +1,46 @@
+\newrobustcmd{\ProceedFields}[1]{%
+\Proceed{#1}{no} &%
+\Proceed{#1}{all} &%
+\ProceedPercent{#1}{no} &%
+\Proceed{#1}{caution} &%
+\Proceed{#1}{all} &%
+\ProceedPercent{#1}{caution} &%
+\Proceed{#1}{yes} &%
+\Proceed{#1}{all} &%
+\ProceedPercent{#1}{yes}%
+}%
+
+
+\begin{table*}
+\centering
+\begin{tabular}{p{1cm}l*{3}{|r@{/}lc}}
+\multicolumn{2}{l}{Scenario} &
+\multicolumn{3}{|c}{no} &
+\multicolumn{3}{|c}{with caution} &
+\multicolumn{3}{|c}{yes}
+\\
+\hline
+%\ScenarioLeftHeading{BotnetSpam} &
+\multicolumn{2}{l|}{\ScenarioShortName{BotnetSpam}} & \ProceedFields{BotnetSpam} \\
+\multicolumn{2}{l|}{\ScenarioShortName{Censorship}} & \ProceedFields{Censorship} \\
+ & \ScenarioShortName{CensorshipOptIn} & \ProceedFields{CensorshipOptIn} \\
+ & \ScenarioShortName{CensorshipOptOutDelay} & \ProceedFields{CensorshipOptOutDelay} \\
+ & \ScenarioShortName{CensorshipOriginalDesign} & \ProceedFields{CensorshipOriginalDesign} \\
+\multicolumn{2}{l|}{\ScenarioShortName{Facebook}} & \ProceedFields{Facebook} \\
+ & \ScenarioShortName{FacebookMoodControl} & \ProceedFields{FacebookMoodControl} \\
+ & \ScenarioShortName{FacebookMoodInsertOnlyPostiveposts} & \ProceedFields{FacebookMoodInsertOnlyPostiveposts} \\
+ & \ScenarioShortName{FacebookMoodInsertPosts} & \ProceedFields{FacebookMoodInsertPosts} \\
+\multicolumn{2}{l|}{\ScenarioShortName{OKCupid}} & \ProceedFields{OKCupid} \\
+ & \ScenarioShortName{OKCupidNoAlternative} & \ProceedFields{OKCupidNoAlternative} \\
+ & \ScenarioShortName{OKCupidWithAlternative} & \ProceedFields{OKCupidWithAlternative} \\
+\multicolumn{2}{l|}{\ScenarioShortName{OSCredentialSpoofing}} & \ProceedFields{OSCredentialSpoofing} \\
+\multicolumn{2}{l|}{\ScenarioShortName{SearchDelay}} & \ProceedFields{SearchDelay} \\
+ & \ScenarioShortName{SearchDelayBing} & \ProceedFields{SearchDelayBing} \\
+ & \ScenarioShortName{SearchDelayUnspecifiedCompany} & \ProceedFields{SearchDelayUnspecifiedCompany} \\
+\multicolumn{2}{l|}{\ScenarioShortName{SecurityAdoption}} & \ProceedFields{SecurityAdoption} \\
+\multicolumn{2}{l|}{\ScenarioShortName{SocialPhishing}} & \ProceedFields{SocialPhishing} \\
+\multicolumn{2}{l|}{\ScenarioShortName{WarningsDeception}} & \ProceedFields{WarningsDeception} \\
+\end{tabular}
+\caption{Proceed FBUnaware}
+\label{tab:proceed}
+\end{table*}

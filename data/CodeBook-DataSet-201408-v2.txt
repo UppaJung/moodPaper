@@ -1,0 +1,71 @@
+File: cbravo@caprica:/mnt/files/PhD/Ethics/data/RawResults201408v2TDF.csv
+Comments: Data set above corresponds to the dataset collected on 201408, with 442 participants. It was generated from RawResults201408v2TDF.txt,
+	by opening it with LibreOffice and saving it as a CSV file. For some reason, the usual R functions to read CSV files choke on the tab-separated txt file.
+
+Code: CandidateParticipant_PAGE_ => Participate_PAGE
+Question: If someone you cared about were a candidate participant for this experiment, would you want that person to be included as a participant?
+Choices: yes=Yes; indifferent=I have no preference; no=No
+
+Code: CandidateParticipantExplain_PAGE_ => ParticipateExpl_PAGE
+Question: Please explain your answer. (optional)
+[Open answer] 
+
+Code: Proceed_PAGE_ => Proceed_PAGE
+Question: Do you believe the researchers should be allowed to proceed with this experiment?
+Choices: yes=Yes; caution=Yes, but with caution; no=No;
+
+Code: ProceedExplain_PAGE_ => ProceedExpl_PAGE
+Question: Please explain your answer. (optional)
+[Open answer]
+
+Code: ParticipatedInPast_PAGE_ => ParticipatedInPast_PAGE
+Question: Are you aware of having ever participated in such a study?
+Choices: yes=Yes;no=No;  
+
+Code: ParticipatedInPastExplain_PAGE_ => ParticipatedInPastExpl_PAGE
+Question: Please tell us approximately when and where (if in person) you participated in this study:
+[Open answer]
+
+Code: AwareSimilarStudy_PAGE_ => AwareSimilarStudy_PAGE
+Question: Are you aware of a study like this one having been performed by researchers in the past?  (For example, have you have heard about it in the news or learned about it in a class?)
+Choices: yes=Yes; no=No;
+
+Code: AwareSimilarStudyExplain_PAGE_ => AwareSimilarStudyExpl_PAGE
+Question: Please explain how you learned about this study.
+[Open answer]
+
+Code: ImproveQuestion_PAGE_ => ImproveQuestionExpl_PAGE
+Question: Is there anything that we could have made more clear in describing this experiment, or any additional information that would have helped you answer the questions above?
+[Open answer]
+
+Code: Demographics-YearOfBirth => DemographicsYearOfBirth
+Question: In what year were you born? (please use a four-digit year, or 'd' if you decline to answer)
+Choices: int | 'd'
+
+Code: Demographics-Gender => DemographicsGender
+Question: What is your gender?
+Choices: male=Male; female=Female; nc=I'm uncomfortable answering
+
+Code: Demographics-Occupation => [missing]
+Question: What is your occupation?
+[Open answer]
+
+Code: Demographics-PurchasedViaSpam => DemographicsPurchasedViaSpam
+Question: Have you ever purchased goods advertised via an unsolicited marketing email?
+Choices: yes=Yes; no=No; nc=I'm uncomfortable answering
+
+Code: Demographics-ParticipatedDeception => [missing]
+Question: Have you ever participated in a study that involved deception?
+Choices: yes=Yes; no=No; nc=I'm uncomfortable answering
+
+Code: Demographics-ParticipatedDeception-Explain => [missing]
+Question: Please explain.
+[Open answer]
+
+Code: KnewAboutMoodStudy => KnewAboutMoodStudy
+Question: Prior to participating in this study, had you heard about Facebook's &lsquo;mood&rsquo; study? (the experiment that has the subject in many recent news stories)
+Choices: yes=Yes; no=No
+
+Code: KnewAboutOKCupid => KnewAboutOKCupid
+Question: Prior to participating in this study, had you heard about the experiment in which OKCupid changed the match scores shown to users?
+Choices: yes=Yes; no=No

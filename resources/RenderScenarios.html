@@ -1,0 +1,552 @@
+﻿<!DOCTYPE html>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Survey</title>
+    <link type="text/css" href="https://oysurvey.research.microsoft.com/css/oySurvey.css" rel="Stylesheet" />
+    <style>
+        button.oySurveyButton {
+            border: none;
+            background: none;
+            outline: none;
+            border-width: 1px;
+            border-radius: 4px 4px;
+            border-style: solid;
+            border-color: rgba(0,0,0,0);
+        }
+
+            button.oySurveyButton:hover {
+                background-color: rgba(240, 240, 64, .5);
+            }
+
+        button.oySurveySelected, button.oySurveySelected:hover {
+            background-color: rgba(180, 180, 255,.5);
+            border-color: black;
+        }
+
+        .RADIOOPTIONS, .CHECKBOXOPTIONS {
+            margin-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .QuestionText {
+            font-size: 13pt;
+            margin-top: 15px;
+            font-style: italic;
+            margin-bottom: 3px;
+        }
+
+        .FailedRequirement {
+            width: 700px;
+            font-size: 11pt;
+            font-weight: bold;
+            color: rgba(128,0,0,1);
+            background-color: rgba(255,255,128,.5);
+        }
+
+        .ScenarioDescription {
+            background-color: rgba(236,236,236,.75);
+            border-bottom: 1px dotted rgba(128,128,128,.75);
+            border-top: 1px dotted rgba(128,128,128,.75);
+            font-family: sans-serif;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            text-indent: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="oySurvey" id="SurveyDisplay"></div>
+    <div id="HITDescription">
+        <p>In this survey, you will be ask you about five hypothetical scientific experiments.  For each, we will ask you to:</p>
+        <ul>
+            <li><i>Carefully</i> read an abstract description of the experiment (350 words or fewer).</li>
+            <li>Answer 4 multiple-choice questions about each experiment.</li>
+            <li>Optionally provide short explanations of your answers.</li>
+        </ul>
+        <p>Finally, we will ask you some brief demographic questions at the end of the study.  All personal information (e.g., age) is optional.   Your responses will be kept anonymous, though we reserve the right to copy or quote the responses you provide.</p>
+        <p> The entire survey should take <b>under 10 minutes of your time</b> and pays <b>$1.00</b>.</p>
+        <p>This survey is part of a research project being conducted by the <a href="https://www.ethicalresearch.org/">The Ethical Research Project</a>.</p>
+        <p>If you have any questions, please feel free to contact us at: <a href="mailto:team@ethicalresearch.org">team@ethicalresearch.org</a></p>
+        <p><b>To start this HIT, you will need to accept it.</b></p>
+    </div>
+    <div id="SurveyTemplates">
+        <div id="StandardGeneralScenarioQuestions">
+            <!-- This contains questions standard to all general scenarios -->
+            <div class="QUESTION-CandidateParticipant_PAGE_">
+                <div class="QuestionText">
+                    If someone you cared about were a candidate participant for this experiment, would you want that person to be included as a participant?
+                </div>
+                <div class="REQUIRED FailedRequirement">Please answer this question.</div>
+                <div class="HORIZONTALOPTIONS">
+                    yes=Yes;
+                    indifferent=I have no preference;
+                    no=No;
+                </div>
+            </div> <!-- End question -->
+            <div class="QUESTION-CandidateParticipantExplain_PAGE_">
+                <div class="QuestionText">
+                    Please explain your answer. (optional)
+                </div>
+                <textarea cols="80" rows="2"></textarea>
+            </div> <!-- End question -->
+            <div class="QUESTION-Proceed_PAGE_">
+                <div class="QuestionText">
+                    Do you believe the researchers should be allowed to proceed with this experiment?
+                </div>
+                <div class="REQUIRED FailedRequirement">Please answer this question.</div>
+                <div class="HORIZONTALOPTIONS ">
+                    yes=Yes;
+                    caution=Yes, but with caution;
+                    unsure=I'm not sure;
+                    no=No;
+                </div>
+            </div> <!-- End question -->
+            <div class="QUESTION-Explain_PAGE_">
+                <div class="QuestionText">
+                    Please explain your answer. (optional)
+                </div>
+                <textarea cols="80" rows="2"></textarea>
+            </div> <!-- End question -->
+
+            <div class="QUESTION-AwareOfSuchStudy_PAGE_">
+                <div class="QuestionText">
+                    Are you aware of having ever participated in such a study?
+                </div>
+                <div class="REQUIRED FailedRequirement">Please answer this question.</div>
+                <div class="HORIZONTALOPTIONS">
+                    yes=Yes;
+                    no=No;
+                </div>
+            </div> <!-- End question -->
+            <div class="QUESTION-AwareOfSuchStudyExplain_PAGE_ ACTIVATEON-AwareOfSuchStudy_PAGE_-yes">
+                <div class="QuestionText">
+                    Please tell us approximately when and where (if in person) you participated in this study:
+                </div>
+                <textarea cols="80" rows="4"></textarea>
+            </div> <!-- End question -->
+
+            <div class="QUESTION-LearnedOfStudy_PAGE_">
+                <div class="QuestionText">
+                    Are you aware of a study like this one having been performed by researchers in the past?  (For example, have you have heard about it in the news or learned about it in a class?)
+                </div>
+                <div class="REQUIRED FailedRequirement">Please answer this question.</div>
+                <div class="HORIZONTALOPTIONS">
+                    yes=Yes;
+                    no=No;
+                </div>
+            </div> <!-- End question -->
+            <div class="QUESTION-LearnedOfStudyExplain_PAGE_ ACTIVATEON-LearnedOfStudy_PAGE_-yes">
+                <div class="QuestionText">
+                    Please explain how you learned about this study.
+                </div>
+                <div class="REQUIRED-MinLength-10 FailedRequirement">
+                    Please provide an answer that is at least ten characters in length.
+                </div>
+                <textarea cols="80" rows="4"></textarea>
+            </div> <!-- End question -->
+
+        </div>
+
+    </div>
+    <div class="oySurvey" id="mysurvey">
+        <!-- -------------------------
+                Introduction Page
+         -------------------------- -->
+        <div class="PAGE" id="Introduction">
+            <p>In this survey, you will be ask you about five hypothetical scientific experiments.  For each, we will ask you to:</p>
+            <ul>
+                <li><i>Carefully</i> read an abstract description of the experiment (350 words or fewer).</li>
+                <li>Answer 4 multiple-choice questions about each experiment.</li>
+                <li>Optionally provide short explanations of your answers.</li>
+            </ul>
+            <p>Finally, we will ask you some brief demographic questions at the end of the study.  All personal information (e.g., age) is optional.   Your responses will be kept anonymous, though we reserve the right to copy or quote the responses you provide.</p>
+            <p> The entire survey should take <b>under 10 minutes of your time</b> and pays <b>$1.00</b>.</p>
+            <p>This survey is part of a research project being conducted by the <a href="https://www.ethicalresearch.org/">The Ethical Research Project</a>.</p>
+            <p>If you have any questions, please feel free to contact us at: <a href="mailto:team@ethicalresearch.org">team@ethicalresearch.org</a></p>
+        </div>
+
+        <!-- ------------------------------
+           Randomize the two main sections
+         ------------------------------- -->
+        <div class="RANDOMIZE-MainSections" id="MainSections">
+            <!-- -------------------------
+               General Scenarios Section
+             -------------------------- -->
+            <div id="GeneralScenarios">
+
+                <div class="PAGE" id="GeneralScenarioIntro">
+                    <p>
+                        Each of the following five pages will contain a description of a hypothetical scientific experiment, followed by questions about that experiment.
+                        In order to answer the questions, please read the description of each experiment carefully.
+                    </p>
+                </div>
+
+                <div class="RANDOMIZE" id="Scenarios">
+
+                    <div class="PAGE" id="Scenario_OSCredentialSpoofing">
+                        <!-- Scenario Description -->
+                        <div class="ScenarioDescription">
+                            <p>Computer security researchers want to learn the fraction of Internet users who fall for the tricks used by hackers to steal users&rsquo; passwords.</p>
+                            <p>Conducting such research is challenging because if research participants know the attack is coming, or even that the study is about computer security, they may be less likely to fall for the tricks. The researchers thus plan to deceive participants as to the purpose of the human intelligence task (HIT) they will be asked to complete:</p>
+                            <ul>
+                                <!--<li>The researchers will ask participants to consent to be part of a study, but will not disclose that the focus of the study is participants' security behavior.</li>-->
+                                <li>During the task the researchers will replicate the techniques that hackers use to trick users into typing their passwords.</li>
+                                <li>Unlike criminal hackers, the researchers will not actually steal, collect, or store the passwords that users type.</li>
+                                <li>Afterwards, the researchers will present a detailed explanation of the deception to participants, reveal the true purpose of the study, and reassure participants that no passwords were actually stolen during the study.</li>
+                                <li>The researchers will publish the anonymized aggregate results of the experiment in a scientific paper.</li>
+                                <li>Participants will not be identified and will remain anonymous.</li>
+                            </ul>
+                            <div>If the researchers are not allowed to perform this experiment, they will not be able to measure how often users fall victim to attacks that target users' passwords. Therefore, the researchers will not be able to produce or publish recommendations that help users better learn to recognize such attacks.</div>
+                        </div>
+                        <div class="REPLICAOF-StandardGeneralScenarioQuestions"></div>
+                    </div> <!-- End page -->
+
+                    <div class="PAGE" id="Scenario_BotnetSpam">
+                        <!-- Scenario Description -->
+                        <div class="ScenarioDescription">
+                            <p>Computer security researchers, seeking to understand the economic infrastructure that enables email spam, want to measure the rate at which spam emails result in purchases.</p>
+                            <p>Conducting such research is challenging.  Researchers would not want to send spam.  Spammers are unlikely to divulge how successful their emails are in attracting purchases.</p>
+                            <ul>
+                                <li>The researchers will allow one of their computers to become infected with software that is controlled by spammers, while the researchers maintain sufficient control of the computer to monitor how attackers are using it.</li>
+                                <li>The researchers will alter the commands that the spammers send to the researchers' infected computer, replacing the link to the spammer's store with a link to a website run by the researchers that mimics the appearance of the spammer's store.</li>
+                                <li>Without collecting payments or other personal information about those users who respond to the spam email seeking to make a purchase from the spammers, the researchers record the number of attempts made to purchase products from the store advertised by the spam.</li>
+                                <li>The researchers will not inform users who receive the spam sent by attackers using the infected computer as this might cause users to behave differently or otherwise compromise the validity of the results.</li>
+                                <li>The researchers will not inform users who visit the store to make a purchase that the store has been disabled or that their choice to make a purchase is being recorded.</li>
+                                <li>The researchers will publish the anonymized aggregate results of the experiment in a scientific paper.</li>
+                                <li>Participants will not be identified and will remain anonymous.</li>
+                            </ul>
+                            <div>
+                                If the researchers are not allowed to perform this experiment, they will not be able to empirically measure the effectiveness of spam emails and may not be able to produce or publish well-informed recommendations for technical or policy approaches to stopping spam.
+                            </div>
+                        </div>
+                        <div class="REPLICAOF-StandardGeneralScenarioQuestions"></div>
+                    </div> <!-- End page -->
+
+                    <div class="PAGE" id="Scenario_WarningsDeception">
+                        <!-- Scenario Description -->
+                        <div class="ScenarioDescription">
+                            <p>Computer security researchers want to measure different techniques for presenting security warnings.</p>
+                            <p>One challenge in studying security decision making is that if participants are made aware that researchers are studying their security behavior, or become aware of it, they are likely to behave differently than they normally would. The researchers thus plan to deceive participants as to the purpose of the human intelligence task (HIT) they will be asked to complete:</p>
+                            <ul>
+                                <!--<li>The researchers will ask participants to consent to be part of a study, but will not disclose that the focus of the study is participants' security behavior.</li>-->
+                                <li>The researchers will give participants a task unrelated to security, but that will cause participants to encounter a security warning.</li>
+                                <li>While the warning will create the illusion that the participant is facing a security risk, the researchers will not actually expose participants to any real security risks.</li>
+                                <li>The researchers will measure how different ways of presenting a warning may make that warning more or less effective in convincing users to avoid a risk.</li>
+                                <li>At the conclusion of the experiment, the researchers will present a detailed explanation of the deception to participants, reveal the true purpose of the study, and reassure participants that they were never at any real risk.</li>
+                                <li>The researchers will publish the anonymized aggregate results of the experiment in a scientific paper.</li>
+                                <li>Participants will not be identified and will remain anonymous.</li>
+                            </ul>
+                            <div>If the researchers are not allowed to perform this experiment, they will not be able to measure the effectiveness of different designs for computer security warnings. Therefore, the researchers will not be able to produce or publish recommendations to improve the effectiveness of future security warnings.</div>
+                        </div>
+                        <div class="REPLICAOF-StandardGeneralScenarioQuestions"></div>
+                    </div> <!-- End page -->
+
+                    <div class="PAGE" id="Scenario_SocialPhishing">
+                        <!-- Scenario Description -->
+                        <div class="ScenarioDescription">
+                            <p>Phishing is an attack in which users are sent emails with a link to a fraudulent website in order to trick them into divulging their passwords. For example, some phishing emails appear to come from a user's bank and contain a link to a website that also appears to be the user's bank, but is actually controlled by the attacker. When the user types the password into the fake site, the attacker takes the password and can now login to the user's account.</p>
+                            <p>University researchers want to quantify how much the success of a phishing attack would increase if the email its targets received appeared to come from someone the target user trusted—-a friend:</p>
+                            <ul>
+                                <li>The researchers will send phishing emails to students with a link to a website that impersonates one of the university's websites.</li>
+                                <li>The researchers will send half of the students an email that appears to be from one of the student's friends, who the researchers will identify by examining the student's Facebook profile.  The researchers will send the other half of students an email that appears to be sent by someone the student does not know.</li>
+                                <li>If students enter passwords into the researchers' site, the researchers will, with the permission of the university, use the university's systems to verify that the passwords entered were valid passwords.</li>
+                                <li>Afterwards, the researchers will notify students that this was a research study. They will inform offer students the opportunity to ask to have their data excluded from the study and to comment about the study on a blog.</li>
+                                <li>The researchers will publish the anonymized aggregate results of the experiment in a scientific paper.</li>
+                                <li>Participants will not be identified and will remain anonymous.</li>
+                            </ul>
+                            <p>If the researchers are not allowed to perform this experiment, they will not be able to measure how often users fall victim to phishing attacks.  Therefore, the researchers will not be able to publish recommendations to help users better learn to recognize such attacks.</p>
+                        </div>
+                        <div class="REPLICAOF-StandardGeneralScenarioQuestions"></div>
+                    </div> <!-- End page -->
+
+                    <div class="RANDOMIZEANDKEEP-1-MoodScenario" id="Scenario_FacebookMood">
+
+                        <div class="PAGE" id="Scenario_FacebookMood_Control">
+                            <!-- Scenario Description -->
+                            <div class="ScenarioDescription">
+                                <p>
+                                    Researchers at Facebook want to study whether users are more likely to share positive (happy) thoughts if their friends have been posting positive thoughts,
+                                    and whether they are more likely to share negative (unhappy) thoughts if their friends have been sharing negative thoughts.
+                                </p>
+                                <ul>
+                                    <li>To increase the proportion of positive posts in some users' news feeds, the researchers will randomly exclude some fraction of friends' negative posts each time the news feed is loaded.</li>
+                                    <li>To increase the proportion of negative posts in some users' news feeds, the researchers will randomly exclude some fraction of friends' positive posts each time the news feed is loaded.</li>
+                                    <li>The researchers will use an automated algorithm to measure whether users' posts are of a positive or negative mood.</li>
+                                    <li>The researchers will publish the anonymized aggregate results of the experiment in a scientific paper.</li>
+                                    <li>Participants will not be identified and will remain anonymous.</li>
+                                </ul>
+                                <p>If the researchers are not allowed to perform this experiment, they will not be able to make a valid scientific determination of whether users' moods are affected by the moods of their friends' posts. Therefore, the researchers will not be able to produce features that might protect the moods of psychologically-vulnerable users.</p>
+                            </div>                        <div class="REPLICAOF-StandardGeneralScenarioQuestions"></div>
+                        </div> <!-- End page -->
+
+                        <div class="PAGE" id="Scenario_FacebookMood_Twitter">
+                            <!-- Scenario Description -->
+                            <div class="ScenarioDescription">
+                                <p>
+                                    Researchers at <!--Facebook-->Twitter want to study whether users are more likely to share positive (happy) thoughts if their friends have been posting positive thoughts,
+                                    and whether they are more likely to share negative (unhappy) thoughts if their friends have been sharing negative thoughts.
+                                </p>
+                                <ul>
+                                    <li>To increase the proportion of positive posts in some users' news feeds, the researchers will randomly exclude some fraction of friends' negative posts each time the news feed is loaded.</li>
+                                    <li>To increase the proportion of negative posts in some users' news feeds, the researchers will randomly exclude some fraction of friends' positive posts each time the news feed is loaded.</li>
+                                    <li>The researchers will use an automated algorithm to measure whether users' posts are of a positive or negative mood.</li>
+                                    <li>The researchers will publish the anonymized aggregate results of the experiment in a scientific paper.</li>
+                                    <li>Participants will not be identified and will remain anonymous.</li>
+                                </ul>
+                                <p>If the researchers are not allowed to perform this experiment, they will not be able to make a valid scientific determination of whether users' moods are affected by the moods of their friends' posts. Therefore, the researchers will not be able to produce features that might protect the moods of psychologically-vulnerable users.</p>
+                            </div>
+
+                            <div class="REPLICAOF-StandardGeneralScenarioQuestions"></div>
+                        </div> <!-- End page -->
+
+                        <div class="PAGE" id="Scenario_FacebookMood_UnnamedCompany">
+                            <!-- Scenario Description -->
+                            <div class="ScenarioDescription">
+                                <p>
+                                    Researchers at <!--Facebook-->a social network want to study whether users are more likely to share positive (happy) thoughts if their friends have been posting positive thoughts,
+                                    and whether they are more likely to share negative (unhappy) thoughts if their friends have been sharing negative thoughts.
+                                </p>
+                                <ul>
+                                    <li>To increase the proportion of positive posts in some users' news feeds, the researchers will randomly exclude some fraction of friends' negative posts each time the news feed is loaded.</li>
+                                    <li>To increase the proportion of negative posts in some users' news feeds, the researchers will randomly exclude some fraction of friends' positive posts each time the news feed is loaded.</li>
+                                    <li>The researchers will use an automated algorithm to measure whether users' posts are of a positive or negative mood.</li>
+                                    <li>The researchers will publish the anonymized aggregate results of the experiment in a scientific paper.</li>
+                                    <li>Participants will not be identified and will remain anonymous.</li>
+                                </ul>
+                                <p>If the researchers are not allowed to perform this experiment, they will not be able to make a valid scientific determination of whether users' moods are affected by the moods of their friends' posts. Therefore, the researchers will not be able to produce features that might protect the moods of psychologically-vulnerable users.</p>
+                            </div>
+
+                            <div class="REPLICAOF-StandardGeneralScenarioQuestions"></div>
+                        </div> <!-- End page -->
+
+                        <div class="PAGE" id="Scenario_FacebookMood_WithoutPublication">
+                            <!-- Scenario Description -->
+                            <div class="ScenarioDescription">
+                                <p>
+                                    Researchers at Facebook want to study whether users are more likely to share positive (happy) thoughts if their friends have been posting positive thoughts,
+                                    and whether they are more likely to share negative (unhappy) thoughts if their friends have been sharing negative thoughts.
+                                </p>
+                                <ul>
+                                    <li>To increase the proportion of positive posts in some users' news feeds, the researchers will randomly exclude some fraction of friends' negative posts each time the news feed is loaded.</li>
+                                    <li>To increase the proportion of negative posts in some users' news feeds, the researchers will randomly exclude some fraction of friends' positive posts each time the news feed is loaded.</li>
+                                    <li>The researchers will use an automated algorithm to measure whether users' posts are of a positive or negative mood.</li>
+                                    <!--<li>The researchers will publish the anonymized aggregate results of the experiment in a scientific paper.</li>-->
+                                    <li>Participants will not be identified and will remain anonymous.</li>
+                                </ul>
+                                <p>If the researchers are not allowed to perform this experiment, they will not be able to make a valid scientific determination of whether users' moods are affected by the moods of their friends' posts. Therefore, the researchers will not be able to produce features that might protect the moods of psychologically-vulnerable users.</p>
+                            </div>
+
+                            <div class="REPLICAOF-StandardGeneralScenarioQuestions"></div>
+                        </div> <!-- End page -->
+
+                        <div class="PAGE" id="Scenario_FacebookMood_WithoutImprovingProduct">
+                            <!-- Scenario Description -->
+                            <div class="ScenarioDescription">
+                                <p>
+                                    Researchers at Facebook want to study whether users are more likely to share positive (happy) thoughts if their friends have been posting positive thoughts,
+                                    and whether they are more likely to share negative (unhappy) thoughts if their friends have been sharing negative thoughts.
+                                </p>
+                                <ul>
+                                    <li>To increase the proportion of positive posts in some users' news feeds, the researchers will randomly exclude some fraction of friends' negative posts each time the news feed is loaded.</li>
+                                    <li>To increase the proportion of negative posts in some users' news feeds, the researchers will randomly exclude some fraction of friends' positive posts each time the news feed is loaded.</li>
+                                    <li>The researchers will use an automated algorithm to measure whether users' posts are of a positive or negative mood.</li>
+                                    <li>The researchers will publish the anonymized aggregate results of the experiment in a scientific paper.</li>
+                                    <li>Participants will not be identified and will remain anonymous.</li>
+                                </ul>
+                                <p>If the researchers are not allowed to perform this experiment, they will not be able to make a valid scientific determination of whether users' moods are affected by the moods of their friends' posts. <!--Therefore, the researchers will not be able to produce features that might protect the moods of psychologically-vulnerable users.--></p>
+                            </div>
+
+                            <div class="REPLICAOF-StandardGeneralScenarioQuestions"></div>
+                        </div> <!-- End page -->
+
+                        <div class="PAGE" id="Scenario_FacebookMood_WithoutRemovingNegativePosts">
+                            <!-- Scenario Description -->
+                            <div class="ScenarioDescription">
+                                <p>
+                                    Researchers at Facebook want to study whether users
+                                    <!--are more likely to share positive (happy) thoughts if their friends have been posting positive thoughts,
+                                    and whether they-->
+                                    are more likely to share negative (unhappy) thoughts if their friends have been sharing negative thoughts.
+                                </p>
+                                <ul>
+                                    <!--<li>To increase the proportion of positive posts in some users' news feeds, the researchers will randomly exclude some fraction of friends' negative posts each time the news feed is loaded.</li>-->
+                                    <li>To increase the proportion of negative posts in some users' news feeds, the researchers will randomly exclude some fraction of friends' positive posts each time the news feed is loaded.</li>
+                                    <li>The researchers will use an automated algorithm to measure whether users' posts are of a positive or negative mood.</li>
+                                    <li>The researchers will publish the anonymized aggregate results of the experiment in a scientific paper.</li>
+                                    <li>Participants will not be identified and will remain anonymous.</li>
+                                </ul>
+                                <p>If the researchers are not allowed to perform this experiment, they will not be able to make a valid scientific determination of whether users' moods are affected by the moods of their friends' posts. Therefore, the researchers will not be able to produce features that might protect the moods of psychologically-vulnerable users.</p>
+                            </div>
+
+                            <div class="REPLICAOF-StandardGeneralScenarioQuestions"></div>
+                        </div> <!-- End page -->
+
+                        <div class="PAGE" id="Scenario_FacebookMood_WithoutRemovingPositivePosts">
+                            <!-- Scenario Description -->
+                            <div class="ScenarioDescription">
+                                <p>
+                                    Researchers at Facebook want to study whether users are more likely to share positive (happy) thoughts if their friends have been posting positive thoughts
+                                    <!--, and whether they
+                                    are more likely to share negative (unhappy) thoughts if their friends have been sharing negative thoughts-->
+                                    .
+                                </p>
+                                <ul>
+                                    <li>To increase the proportion of positive posts in some users' news feeds, the researchers will randomly exclude some fraction of friends' negative posts each time the news feed is loaded.</li>
+                                    <!--<li>To increase the proportion of negative posts in some users' news feeds, the researchers will randomly exclude some fraction of friends' positive posts each time the news feed is loaded.</li>-->
+                                    <li>The researchers will use an automated algorithm to measure whether users' posts are of a positive or negative mood.</li>
+                                    <li>The researchers will publish the anonymized aggregate results of the experiment in a scientific paper.</li>
+                                    <li>Participants will not be identified and will remain anonymous.</li>
+                                </ul>
+                                <p>If the researchers are not allowed to perform this experiment, they will not be able to make a valid scientific determination of whether users' moods are affected by the moods of their friends' posts. Therefore, the researchers will not be able to produce features that might protect the moods of psychologically-vulnerable users.</p>
+                            </div>
+
+                            <div class="REPLICAOF-StandardGeneralScenarioQuestions"></div>
+                        </div> <!-- End page -->
+
+                        <div class="PAGE" id="Scenario_FacebookMood_InsertPosts">
+                            <!-- Scenario Description -->
+                            <div class="ScenarioDescription">
+                                <p>
+                                    Researchers at Facebook want to study whether users are more likely to share positive (happy) thoughts if their friends have been posting positive thoughts,
+                                    and whether they are more likely to share negative (unhappy) thoughts if their friends have been sharing negative thoughts.
+                                </p>
+                                <ul>
+                                    <li>To increase the proportion of positive posts in some users' news feeds,<!-- the researchers will randomly exclude some fraction of friends' negative posts each time the news feed is loaded--> the researchers will randomly include additional positive posts that would otherwise have been deemed insufficiently relevant or unimportant.</li>
+                                    <li>To increase the proportion of negative posts in some users' news feeds,<!-- the researchers will randomly exclude some fraction of friends' positive posts each time the news feed is loaded.--> the researchers will randomly include additional negative posts that would otherwise have been deemed insufficiently relevant or unimportant.</li>
+                                    <li>The researchers will use an automated algorithm to measure whether users' posts are of a positive or negative mood.</li>
+                                    <li>The researchers will publish the anonymized aggregate results of the experiment in a scientific paper.</li>
+                                    <li>Participants will not be identified and will remain anonymous.</li>
+                                </ul>
+                                <p>If the researchers are not allowed to perform this experiment, they will not be able to make a valid scientific determination of whether users' moods are affected by the moods of their friends' posts. Therefore, the researchers will not be able to produce features that might protect the moods of psychologically-vulnerable users.</p>
+                            </div>
+
+                            <div class="REPLICAOF-StandardGeneralScenarioQuestions"></div>
+                        </div> <!-- End page -->
+
+                        <div class="PAGE" id="Scenario_FacebookMood_InsertOnlyPostiveposts">
+                            <!-- Scenario Description -->
+                            <div class="ScenarioDescription">
+                                <p>
+                                    Researchers at Facebook want to study whether users are more likely to share positive (happy) thoughts if their friends have been posting positive thoughts
+                                    <!--,
+                                    and whether they are more likely to share negative (unhappy) thoughts if their friends have been sharing negative thoughts-->
+                                    .
+                                </p>
+                                <ul>
+                                    <li>To increase the proportion of positive posts in some users' news feeds,<!-- the researchers will randomly exclude some fraction of friends' negative posts each time the news feed is loaded--> the researchers will randomly include additional positive posts that would otherwise have been deemed insufficiently relevant or unimportant.</li>
+                                    <!--<li>To increase the proportion of negative posts in some users' news feeds, the researchers will randomly include additional negative posts that would otherwise have been deemed insufficiently relevant or unimportant.</li>-->
+                                    <li>The researchers will use an automated algorithm to measure whether users' posts are of a positive or negative mood.</li>
+                                    <li>The researchers will publish the anonymized aggregate results of the experiment in a scientific paper.</li>
+                                    <li>Participants will not be identified and will remain anonymous.</li>
+                                </ul>
+                                <p>If the researchers are not allowed to perform this experiment, they will not be able to make a valid scientific determination of whether users' moods are affected by the moods of their friends' posts. Therefore, the researchers will not be able to produce features that might protect the moods of psychologically-vulnerable users.</p>
+                            </div>
+
+                            <div class="REPLICAOF-StandardGeneralScenarioQuestions"></div>
+                        </div> <!-- End page -->
+
+                        <div class="PAGE" id="Scenario_FacebookMood_NoAdvertising">
+                            <!-- Scenario Description -->
+                            <div class="ScenarioDescription">
+                                <p>
+                                    Researchers at Facebook want to study whether users are more likely to share positive (happy) thoughts if their friends have been posting positive thoughts,
+                                    and whether they are more likely to share negative (unhappy) thoughts if their friends have been sharing negative thoughts.
+                                </p>
+                                <ul>
+                                    <li>To increase the proportion of positive posts in some users' news feeds, the researchers will randomly exclude some fraction of friends' negative posts each time the news feed is loaded.</li>
+                                    <li>To increase the proportion of negative posts in some users' news feeds, the researchers will randomly exclude some fraction of friends' positive posts each time the news feed is loaded.</li>
+                                    <li>The researchers will use an automated algorithm to measure whether users' posts are of a positive or negative mood.</li>
+                                    <li>The researchers will publish the anonymized aggregate results of the experiment in a scientific paper.</li>
+                                    <li>Participants will not be identified and will remain anonymous.</li>
+                                    <li>The researchers promise in writing that the research findings will be used only to further science and improve the product for users.  The results will not be used to improve Facebook's advertising algorithms.</li>
+                                </ul>
+                                <p>If the researchers are not allowed to perform this experiment, they will not be able to make a valid scientific determination of whether users' moods are affected by the moods of their friends' posts. Therefore, the researchers will not be able to produce features that might protect the moods of psychologically-vulnerable users.</p>
+                            </div>                        <div class="REPLICAOF-StandardGeneralScenarioQuestions"></div>
+                        </div> <!-- End page -->
+
+
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End of randomization of the two sections -->
+        <div class="PAGE" id="Demographics">
+            <!-- Scenario Description -->
+            <div>
+                These last questions are about your age, gender, occupation, and online experiences.
+                We realize these questions may be somewhat personal.
+                We would greatly appreciate your answers so we can determine what factors may have influenced your responses.
+            </div>
+
+
+            <div class="QUESTION-Demographics-YearOfBirth">
+                <div class="QuestionText">
+                    In what year were you born? (please use a four-digit year, or 'd' if you decline to answer)
+                </div>
+                <div id="AgeRequirement" class="FailedRequirement">Please answer this question or enter the letter d to decline to answer.</div>
+                <input type="text" style="width:80px" />
+            </div> <!-- end question -->
+            <div class="QUESTION-Demographics-Gender">
+                <div class="QuestionText">
+                    What is your gender?
+                </div>
+                <div class="REQUIRED FailedRequirement">Please answer this question or indicate that you are not comfortable answering.</div>
+                <div class="HORIZONTALOPTIONS">
+                    male=Male;female=Female;nc=I'm uncomfortable answering
+                </div>
+            </div> <!-- End question -->
+            <div class="QUESTION-Demographics-Occupation">
+                <div class="QuestionText">
+                    What is your occupation?
+                </div>
+                <input type="text" style="width:200px" />
+            </div> <!-- end question -->
+            <div class="QUESTION-Demographics-PurchasedViaSpam">
+                <div class="QuestionText">
+                    Have you ever purchased goods advertised via an unsolicited marketing email?
+                </div>
+                <div class="REQUIRED FailedRequirement">Please answer this question or indicate that you are not comfortable answering.</div>
+                <div class="HORIZONTALOPTIONS">
+                    yes=Yes;no=No;nc=I'm uncomfortable answering
+                </div>
+            </div> <!-- End question -->
+            <div class="QUESTION-Demographics-ParticipatedDeception">
+                <div class="QuestionText">
+                    Have you ever participated in a study that involved deception?
+                </div>
+                <div class="REQUIRED FailedRequirement">Please answer this question or indicate that you are not comfortable answering.</div>
+                <div class="HORIZONTALOPTIONS">
+                    yes=Yes;no=No;nc=I'm uncomfortable answering
+                </div>
+            </div> <!-- End question -->
+            <div id="Demographics-ParticipatedDeception-Explain" class="QUESTION">
+                <div class="QuestionText">
+                    Please explain.
+                </div>
+                <textarea cols="80" rows="3"></textarea>
+            </div> <!-- End question -->
+            <div class="QUESTION-KnewAboutMoodStudy">
+                <div class="QuestionText">
+                    Prior to participating in this study, had you heard about Facebook's &lsquo;mood&rsquo; study (the experiment that has the subject in many recent news stories).
+                </div>
+                <div class="REQUIRED FailedRequirement">Please answer this question or indicate that you are not comfortable answering.</div>
+                <div class="RADIOOPTIONS ">
+                    yes=Yes;no=No
+                </div>
+            </div> <!-- End question -->
+        </div> <!-- End page -->
+
+        <div class="PAGE" id="Thanks">
+            <p>Thank you so much for taking the time to answer this survey.  Press the finish button to complete the HIT and get paid.</p>
+        </div> <!-- End page -->
+
+    </div> <!-- End survey -->
+</body>
+</html>

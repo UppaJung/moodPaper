@@ -1,0 +1,86 @@
+\newcommand{\surrogateline}[1]{\CaptionSize{\TreatmentNum{#1}}
+& \CaptionSize{\Heading{#1}}
+& \UnawareSurrogateFacebookno{#1} & (\bf \UnawareSurrogateFacebooknoPercent{#1})
+& \UnawareSurrogateFacebookindifferent{#1} & (\UnawareSurrogateFacebookindifferentPercent{#1})
+& \UnawareSurrogateFacebookyes{#1} &(\UnawareSurrogateFacebookyesPercent{#1})
+& \UnawareSurrogateFacebookAll{#1} }
+\begin{subtable}{0.95\textwidth}
+\centering
+\setlength{\tabcolsep}{4pt}
+\noindent \small
+\begin{tabular}{r|l*{3}{|rr}|r}
+  \multicolumn{2}{c}{}
+& \multicolumn{6}{|c}{Response}
+& \multicolumn{1}{|c}{}
+\\
+  \multicolumn{2}{c}{Experiment described in abstract}
+& \multicolumn{6}{|c}{}
+& \multicolumn{1}{|c}{}
+\\
+  \multicolumn{2}{c}{\textit{\tiny{(order of presentation randomized for each respondent)}}}
+& \multicolumn{2}{|c}{\bf No}
+& \multicolumn{2}{|c}{Indifferent}
+& \multicolumn{2}{|c}{Yes}
+& \multicolumn{1}{|c}{\textit{Total}}
+\\
+\hline \hline
+  \multicolumn{9}{l}{}
+\\
+  \multicolumn{9}{l}{Facebook's emotional contagion experiment \textit{(each respondent saw one variant, selected at random)}}
+\\
+\hline
+\surrogateline{C} \\
+\hline
+\surrogateline{WRNP} \\
+\surrogateline{WRPP} \\
+\hline
+\surrogateline{WP} \\
+\surrogateline{WIP} \\
+\hline
+\surrogateline{NA} \\
+\hline
+\surrogateline{IP} \\
+\surrogateline{IOP} \\
+\hline
+\surrogateline{UC} \\
+\surrogateline{T} \\
+\hline
+\hline
+\surrogateline{A} \\ \hline
+  \multicolumn{9}{l}{}
+\\
+  \multicolumn{9}{l}{Other experiments \textit{(all respondents saw all experiments)}}
+\\
+\hline
+\CaptionSize{\TreatmentNum{SP}}
+& \CaptionSize{\Describe{SP}}
+& \UnawareSurrogateSocialPhishingno{A} &(\bf \UnawareSurrogateSocialPhishingnoPercent{A})
+& \UnawareSurrogateSocialPhishingindifferent{A} &(\UnawareSurrogateSocialPhishingindifferentPercent{A})
+& \UnawareSurrogateSocialPhishingyes{A} &(\UnawareSurrogateSocialPhishingyesPercent{A})
+& \UnawareSurrogateSocialPhishingAll{A}
+\\
+\CaptionSize{\TreatmentNum{BS}}
+&\CaptionSize{\Describe{BS}}
+& \UnawareSurrogateBotnetSpamno{A} &(\bf \UnawareSurrogateBotnetSpamnoPercent{A})
+& \UnawareSurrogateBotnetSpamindifferent{A} &(\UnawareSurrogateBotnetSpamindifferentPercent{A})
+& \UnawareSurrogateBotnetSpamyes{A} &(\UnawareSurrogateBotnetSpamyesPercent{A})
+& \UnawareSurrogateBotnetSpamAll{A}
+\\
+\CaptionSize{\TreatmentNum{OSCS}}
+&\CaptionSize{\Describe{OSCS}}
+& \UnawareSurrogateOSCredentialSpoofingno{A} &(\bf \UnawareSurrogateOSCredentialSpoofingnoPercent{A})
+& \UnawareSurrogateOSCredentialSpoofingindifferent{A} &(\UnawareSurrogateOSCredentialSpoofingindifferentPercent{A})
+& \UnawareSurrogateOSCredentialSpoofingyes{A} &(\UnawareSurrogateOSCredentialSpoofingyesPercent{A})
+& \UnawareSurrogateOSCredentialSpoofingAll{A}
+\\
+\CaptionSize{\TreatmentNum{WD}}
+&\CaptionSize{\Describe{WD}}
+& \UnawareSurrogateWarningsDeceptionno{A} &(\bf \UnawareSurrogateWarningsDeceptionnoPercent{A})
+& \UnawareSurrogateWarningsDeceptionindifferent{A} &(\UnawareSurrogateWarningsDeceptionindifferentPercent{A})
+& \UnawareSurrogateWarningsDeceptionyes{A} &(\UnawareSurrogateWarningsDeceptionyesPercent{A})
+& \UnawareSurrogateWarningsDeceptionAll{A}
+\\
+\end{tabular}
+\caption{``If someone you cared about were a candidate participant for this experiment, would you want that person to be included as a participant?''}
+\label{tab:unaware:surrogate}
+\end{subtable}
